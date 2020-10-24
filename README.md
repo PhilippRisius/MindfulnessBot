@@ -23,9 +23,21 @@ Install Docker via brew or something
 To start the dockerized mongo instance:
 `docker-compose up`
 
+To rebuild python:
+`docker-compose up -d --no-deps --build discord_bot`
+
 To Access Mongo:
 
 `docker ps`
 `docker exec -it <mongo container name> mongo`
 
-The next goal is to get our bot & our requirements all set up so we can deploy a version of the bot live.
+You will need a hostname in your .env file to connect to mongo.
+This will be
+```
+MONGO_HOSTNAME="mongodb_container"
+```
+if using docker, otherwise if running mongo yourself,
+
+```
+MONGO_HOSTNAME="localhost"
+```
