@@ -15,3 +15,29 @@ You will also need to install and set up mongo db.  [OSX install instructions](h
 You'll need the discord token in a `.env` file
 
 The bot will connect to discord by running `python mindful_bot.py`
+
+# Docker notes
+
+Install Docker via brew or something
+
+To start the dockerized mongo instance:
+`docker-compose up`
+
+To rebuild python:
+`docker-compose up -d --no-deps --build discord_bot`
+
+To Access Mongo:
+
+`docker ps`
+`docker exec -it <mongo container name> mongo`
+
+You will need a hostname in your .env file to connect to mongo.
+This will be
+```
+MONGO_HOSTNAME="mongodb_container"
+```
+if using docker, otherwise if running mongo yourself,
+
+```
+MONGO_HOSTNAME="localhost"
+```

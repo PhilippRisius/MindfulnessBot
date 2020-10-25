@@ -8,9 +8,10 @@ from mongo_client import MindfulMongo
 load_dotenv()
 
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
+MONGO_HOSTNAME = os.getenv('MONGO_HOSTNAME')
 
 bot = commands.Bot(command_prefix= '!')
-client = MindfulMongo('localhost', 27017, "MindfulBot")
+client = MindfulMongo(MONGO_HOSTNAME, 27017, "MindfulBot")
 
 @bot.event
 async def on_ready():

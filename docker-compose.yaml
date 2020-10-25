@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  discord_bot:
+    build:
+      context: MindfulnessBot
+      dockerfile: Dockerfile
+    container_name: 'mindful_bot'
+    ports:
+    - 5000:5000
+    env_file:
+      - .env
+    depends_on:
+      - mongodb_container
+  mongodb_container:
+    image: mongo:latest
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
+volumes:
+  mongodb_data_container:
